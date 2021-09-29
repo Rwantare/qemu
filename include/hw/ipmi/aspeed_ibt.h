@@ -1,38 +1,34 @@
 /*
  * ASPEED iBT Device
  *
- * Copyright 2016 IBM Corp.
+ * Copyright (c) 2016-2021 Cédric Le Goater, IBM Corporation.
+ * Copyright 2021 Google LLC
  *
- * This code is licensed under the GPL version 2 or later.  See
- * the COPYING file in the top-level directory.
+ * SPDX-License-Identifier: GPL-2.0-or-later
  */
+
 #ifndef ASPEED_IBT_H
 #define ASPEED_IBT_H
 
+#include "hw/ipmi/ipmi.h"
 #include "hw/sysbus.h"
-#include "chardev/char-fe.h"
 
 #define TYPE_ASPEED_IBT "aspeed.ibt"
 #define ASPEED_IBT(obj) OBJECT_CHECK(AspeedIBTState, (obj), TYPE_ASPEED_IBT)
 
-#define ASPEED_IBT_NR_REGS (0x1C >> 2)
+#define ASPEED_IBT_NR_REGS 7
 
 #define ASPEED_IBT_BUFFER_SIZE 64
 
 typedef struct AspeedIBTState {
-    /*< private >*/
-    SysBusDevice parent_obj;
+    SysBusDevice parent;
 
-    /*< public >*/
-    CharBackend chr;
-    bool connected;
+    IPMICore *handler;
 
+    uint8_t msg_id;
     uint8_t recv_msg[ASPEED_IBT_BUFFER_SIZE];
     uint8_t recv_msg_len;
     int recv_msg_index;
-    int recv_msg_too_many;
-    bool recv_waiting;
-    int in_escape;
 
     uint8_t send_msg[ASPEED_IBT_BUFFER_SIZE];
     uint8_t send_msg_len;
@@ -41,7 +37,7 @@ typedef struct AspeedIBTState {
     qemu_irq irq;
 
     uint32_t regs[ASPEED_IBT_NR_REGS];
-
 } AspeedIBTState;
+
 
 #endif /* ASPEED_IBT_H */

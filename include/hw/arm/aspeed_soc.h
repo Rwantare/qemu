@@ -30,7 +30,7 @@
 #include "hw/usb/hcd-ehci.h"
 #include "qom/object.h"
 #include "hw/misc/aspeed_lpc.h"
-#include "hw/misc/aspeed_ibt.h"
+#include "hw/ipmi/aspeed_ibt.h"
 
 #define ASPEED_SPIS_NUM  2
 #define ASPEED_EHCIS_NUM 2
