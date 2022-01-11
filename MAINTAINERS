@@ -3018,6 +3018,12 @@ F: hw/vmapple/*
 F: include/hw/vmapple/*
 F: docs/system/arm/vmapple.rst
 
+MAX31790 Fan controller
+M: Titus Rwantare <titusr@google.com>
+S: Maintained
+F: hw/sensor/max31790_fan_ctrl.c
+F: include/hw/sensor/max31790_fan_ctrl.h
+
 Subsystems
 ----------
 Overall Audio backends
