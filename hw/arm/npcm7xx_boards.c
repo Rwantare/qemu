@@ -365,6 +365,8 @@ static void kudo_bmc_i2c_init(NPCM7xxState *soc)
     i2c_mux = i2c_slave_create_simple(npcm7xx_i2c_get_bus(soc, 13),
                                       TYPE_PCA9548, 0x77);
 
+    i2c_slave_create_simple(pca954x_i2c_get_bus(i2c_mux, 2), "max31790", 0x58);
+    i2c_slave_create_simple(pca954x_i2c_get_bus(i2c_mux, 3), "max31790", 0x58);
     /* tmp105 is compatible with the lm75 */
     i2c_slave_create_simple(pca954x_i2c_get_bus(i2c_mux, 2), "tmp105", 0x48);
     i2c_slave_create_simple(pca954x_i2c_get_bus(i2c_mux, 3), "tmp105", 0x49);
