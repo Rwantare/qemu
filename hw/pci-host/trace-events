@@ -46,3 +46,7 @@ pnv_phb4_xive_notify_abt(uint64_t notif_port, uint64_t data) "notif=@0x%"PRIx64"
 dino_chip_mem_valid(uint64_t addr, uint32_t val) "access to addr 0x%"PRIx64" is %d"
 dino_chip_read(uint64_t addr, uint32_t val) "addr 0x%"PRIx64" val 0x%08x"
 dino_chip_write(uint64_t addr, uint32_t val) "addr 0x%"PRIx64" val 0x%08x"
+
+# npmc_pcierc.c
+npcm_pcierc_read(uint64_t offset, uint32_t size, uint64_t data) "offset: 0x%" PRIx64 " size: %d data: 0x%" PRIx64
+npcm_pcierc_write(uint64_t offset, uint32_t size, uint64_t data) "offset: 0x%" PRIx64 " size: %d data: 0x%" PRIx64
