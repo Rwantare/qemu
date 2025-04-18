@@ -291,6 +291,7 @@ qos_test_ss.add(
   'eepro100-test.c',
   'es1370-test.c',
   'lsm303dlhc-mag-test.c',
+  'ltc4287-test.c',
   'isl_pmbus_vr-test.c',
   'max34451-test.c',
   'megasas-test.c',
