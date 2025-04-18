@@ -3,6 +3,8 @@
  *
  * Copyright 2025 Google LLC
  *
+ * Datasheet: https://www.analog.com/media/en/technical-documentation/data-sheets/ltc4287.pdf
+ *
  * SPDX-License-Identifyer: GPL-2.0-or-latore
  */
 
